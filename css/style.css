@@ -244,7 +244,7 @@ body.home-page {
 .profile-container {
     position: fixed;
     right: 100px;
-    top: 50%;
+    top: 18%; /* Stays fixed at top */
     transform: translateY(-50%);
     z-index: 1;
     pointer-events: none;
@@ -261,6 +261,7 @@ body.home-page {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    animation: subtleFloat 6s ease-in-out infinite;
     background: linear-gradient(135deg, #7c3aed, #5b21b6);
     padding: 8px;
     box-shadow: 
@@ -282,6 +283,15 @@ body.home-page {
     margin: -5% 0 0 -5%;
     object-position: center center;
     transition: transform 0.35s ease;
+}
+
+@keyframes subtleFloat {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-10px); /* Just a little shake/float */
+    }
 }
 
 /* Floating Animation */
@@ -1225,5 +1235,284 @@ body.home-page {
     
     .footer-brand {
         font-size: 1em;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Smooth page fade in */
+body {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Scroll animations base */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero section animations */
+.main h2 {
+    animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+.main h3 {
+    animation: slideInLeft 0.8s ease-out 0.4s both;
+}
+
+.main-button {
+    animation: slideInLeft 0.8s ease-out 0.6s both;
+}
+
+.social-icons {
+    animation: slideInLeft 0.8s ease-out 0.8s both;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Stats cards animation */
+.stat-card {
+    animation: scaleUp 0.6s ease-out both;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.2s; }
+.stat-card:nth-child(2) { animation-delay: 0.3s; }
+.stat-card:nth-child(3) { animation-delay: 0.4s; }
+.stat-card:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Service cards animation */
+.service-card {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Timeline animation */
+.timeline-item {
+    animation: slideInRight 0.7s ease-out both;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Timeline dot pulse */
+.timeline-dot {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 6px 18px rgba(124,58,237,0.18);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 6px 28px rgba(124,58,237,0.35);
+        transform: scale(1.1);
+    }
+}
+
+/* Profile image animations */
+/* Profile image animations - subtle float only */
+.profile-glow {
+    animation: subtleFloat 6s ease-in-out infinite;
+    transform: translateY(-250px); /* Reduced from -20px */
+}
+
+
+
+.profile-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
+}
+
+/* Decorative circles enhanced animation */
+.circle-1 {
+    animation: float 6s ease-in-out infinite, fadeInOut 3s ease-in-out infinite;
+    animation-delay: -2s, 0s;
+}
+
+.circle-2 {
+    animation: float 6s ease-in-out infinite, fadeInOut 3s ease-in-out infinite;
+    animation-delay: -4s, 1s;
+}
+
+.circle-3 {
+    animation: float 6s ease-in-out infinite, fadeInOut 3s ease-in-out infinite;
+    animation-delay: -1s, 2s;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Header animation */
+header {
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar link hover animation */
+.navbar a::after {
+    animation: none;
+}
+
+.navbar a:hover::after {
+    animation: underlineGlow 0.5s ease-in-out;
+}
+
+@keyframes underlineGlow {
+    0% { box-shadow: 0 0 0 rgba(0,217,255,0); }
+    50% { box-shadow: 0 0 15px rgba(0,217,255,0.6); }
+    100% { box-shadow: 0 0 0 rgba(0,217,255,0); }
+}
+
+/* Button hover animations enhanced */
+.main-button:hover {
+    animation: buttonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(124, 58, 237, 0.8);
+    }
+}
+
+/* Contact form animation */
+.contact-form-wrapper {
+    animation: fadeInScale 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.contact-item {
+    animation: slideInRight 0.7s ease-out both;
+}
+
+.contact-item:nth-child(1) { animation-delay: 0.3s; }
+.contact-item:nth-child(2) { animation-delay: 0.5s; }
+
+.contact-social {
+    animation: fadeInUp 0.7s ease-out 0.7s both;
+}
+
+/* Form input focus animation */
+.form-input:focus {
+    animation: inputGlow 0.5s ease-out;
+}
+
+@keyframes inputGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(0,217,255,0);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0,217,255,0.3);
+    }
+}
+
+/* Footer animation */
+.site-footer {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state for dynamically loaded content */
+#header-placeholder,
+#footer-placeholder {
+    min-height: 60px;
+    transition: all 0.3s ease;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
