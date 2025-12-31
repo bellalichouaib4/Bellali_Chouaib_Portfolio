@@ -231,6 +231,7 @@ body {
 }
 
 /* Background image only for home page */
+body.contact-page,
 body.home-page {
     background-image: linear-gradient(rgba(32,6,48,0.45), rgba(10,4,30,0.5)), url('../media/picture/background.jpeg');
     background-size: cover;
@@ -1099,5 +1100,130 @@ body.home-page {
     .contact-social {
         padding-left: 0;
         justify-content: center;
+    }
+}
+
+
+/* ============================================
+   FOOTER STYLES
+   ============================================ */
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    padding: 25px 120px;
+    background: linear-gradient(180deg, rgba(40,10,80,0.6), rgba(20,8,40,0.9));
+    border-top: 1px solid rgba(124, 58, 237, 0.3);
+    box-shadow: 0 -4px 20px rgba(124, 58, 237, 0.1);
+    margin-top: auto;
+    z-index: 100;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-brand {
+    color: #00D9FF;
+    font-weight: 700;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.footer-tagline {
+    color: #b48bdd;
+    font-size: 0.85em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(124, 58, 237, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00D9FF;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    background: rgba(124, 58, 237, 0.1);
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: rgba(0, 217, 255, 0.2);
+    border-color: #00D9FF;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+    .site-footer {
+        padding: 20px 60px;
+    }
+    
+    .footer-content {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 20px 30px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-brand {
+        font-size: 1em;
     }
 }
