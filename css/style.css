@@ -454,15 +454,15 @@ body.home-page {
 }
 
 .stat-circle:not(.stat-card-2):not(.stat-card-3) .stat-number { 
-    font-size: 56px; 
-    font-weight:900;
+    font-size: clamp(32px, 7vw, 56px); /* Responsive 32-56px */
+    font-weight: 900;
 }
 
 .stat-circle.stat-card-2 .stat-number,
 .stat-circle.stat-card-3 .stat-number { 
-    font-size: 34px; 
-    font-weight:900; 
-    line-height:1.05;
+    font-size: clamp(20px, 4.5vw, 34px); /* Responsive 20-34px */
+    font-weight: 900; 
+    line-height: 1.1;
 }
 
 .stat-circle.stat-card-2 .stat-number span,
@@ -471,7 +471,7 @@ body.home-page {
 }
 
 .stat-label {
-    font-size: 14px;
+    font-size: clamp(10px, 2.5vw, 14px); /* Responsive 10-14px */
     color: rgba(255,255,255,0.9);
     font-weight: 500;
     line-height: 1.25;
@@ -479,6 +479,7 @@ body.home-page {
     text-align: center;
     margin: 0;
 }
+
 
 .stat-label br { 
     display: block; 
@@ -1542,6 +1543,11 @@ header {
     
     .stat-card {
         --size: 140px;
+    }
+
+    .stat-content {
+        padding: 12px; /* Less padding = more room for text */
+        gap: 8px;
     }
     
     .stat-circle:not(.stat-card-2):not(.stat-card-3) .stat-number {

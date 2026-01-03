@@ -12,16 +12,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Insert header into DOM
       headerPlaceholder.innerHTML = headerData;
       
-      // Active link logic
-      const activePage = window.location.pathname.split("/").pop() || "home.html";
+      // Active link logic for clean URLs
+      const currentPath = window.location.pathname;
       const links = headerPlaceholder.querySelectorAll("header .navbar a");
-      
+
       links.forEach(link => {
         const href = link.getAttribute("href");
-        if (activePage === href) {
+        
+        // Check if current page matches link
+        if (href === currentPath || 
+            (href === "/" && (currentPath === "/" || currentPath === "/index.html")) ||
+            currentPath.includes(href.substring(1))) {
           link.classList.add("active");
         }
       });
+
       
       // *** INITIALIZE MOBILE MENU AFTER HEADER LOADS ***
       initMobileMenu();
