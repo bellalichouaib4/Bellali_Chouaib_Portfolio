@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
   
+  
   // Load Footer
   const footerPlaceholder = document.getElementById("footer-placeholder");
   if (footerPlaceholder) {
@@ -41,3 +42,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 });
+
+// Mobile Menu Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const navbar = document.querySelector('.navbar');
+  
+  if (mobileToggle && navbar) {
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navbar.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+    
+    // Close menu when clicking on a link
+    const navLinks = navbar.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navbar.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+  }
+});
+

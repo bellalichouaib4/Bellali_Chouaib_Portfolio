@@ -10,18 +10,6 @@
   font-style: normal;
 }
 
-@media (max-width: 1024px) {
-    .main {
-        padding-right: 100px;  /* Reduce padding on tablet */
-    }
-}
-
-@media (max-width: 768px) {
-    .main {
-        padding-right: 0;  /* Remove padding on mobile */
-        flex-direction: column;
-    }
-}
 
 header{
     position: fixed;
