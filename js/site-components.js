@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           link.classList.add("active");
         }
       });
+      
+      // *** INITIALIZE MOBILE MENU AFTER HEADER LOADS ***
+      initMobileMenu();
+      
     } catch (error) {
       console.error("Header load failed:", error);
     }
@@ -43,8 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Mobile Menu Toggle
-document.addEventListener("DOMContentLoaded", () => {
+// Mobile Menu Toggle Function (called after header loads)
+function initMobileMenu() {
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const navbar = document.querySelector('.navbar');
   
@@ -65,5 +69,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-});
-
+}
