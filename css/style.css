@@ -42,16 +42,21 @@ header{
     box-shadow: 0 0 14px rgba(0,217,255,0.45), 0 0 28px rgba(0,150,255,0.12);
     display: inline-block;
 }
+.navbar {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
 .navbar a{
     color: #E5E5E5;
     font-weight: 500;
-    margin-left: 50px;
     text-decoration: none;
     font-size: 0.95rem;
     text-transform: uppercase;
     position: relative;
     padding-bottom: 8px;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 .navbar a:hover,
 .navbar a:focus{
@@ -424,7 +429,7 @@ body.home-page {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .stat-number {
@@ -485,7 +490,7 @@ body.home-page {
 }
 
 .stat-number + .stat-label { 
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .stat-number { 
@@ -1293,7 +1298,57 @@ header {
 /* ============================================
    COMPREHENSIVE MOBILE RESPONSIVE STYLES  
    ============================================ */
-
+/* Large Tablet (950px and below) */
+@media (max-width: 950px) {
+    header {
+        padding: 10px 40px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex; /* Show hamburger menu */
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: rgba(40, 10, 80, 0.98);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 40px 20px;
+        transition: left 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+        gap: 0;
+    }
+    
+    .navbar.active {
+        left: 0;
+    }
+    
+    .navbar a {
+        margin: 0;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+        display: block;
+    }
+    
+    .navbar a::after {
+        display: none;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+}
 /* Tablet Styles (1024px and below) */
 @media (max-width: 1024px) {
     header {
