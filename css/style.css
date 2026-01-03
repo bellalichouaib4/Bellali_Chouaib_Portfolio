@@ -1407,7 +1407,8 @@ header {
         height: calc(100vh - 60px);
         background: rgba(40, 10, 80, 0.98);
         backdrop-filter: blur(10px);
-        flex-direction: column;
+        display: flex; /* ← ADDED: Enable flexbox */
+        flex-direction: column; /* ← CHANGED: Stack vertically */
         justify-content: flex-start;
         align-items: center;
         padding: 40px 20px;
